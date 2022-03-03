@@ -1,0 +1,27 @@
+#301 redirect
+ RewriteCond %{HTTP_HOST} ^www.example.com$ [NC]
+ RewriteRule ^(.*)$ http://example.com/$1 [R=301,L]
+
+ #https
+  RewriteCond %{HTTPS} off
+  RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+  #remove home
+  RewriteCond %{THE_REQUEST} ^.*/home
+  RewriteRule ^(.*)home$ https://example.com/$1 [R=301,L] 
+
+
+ # !IMPORTANT! Set your RewriteBase here and don't forget trailing and leading
+ #  slashes.
+ # If your page resides at
+ #  http://www.example.com/mypage/test1
+ # then use
+ # RewriteBase /mypage/test1/
+ #RewriteBase /
+ RewriteCond %{REQUEST_FILENAME} !-f
+ RewriteCond %{REQUEST_FILENAME} !-d
+ RewriteRule ^(.*)$ index.php?/$1 [L]
+
+# php -- BEGIN cPanel-generated handler, do not edit
+# This domain inherits the “PHP” package.
+# php -- END cPanel-generated handler, do not edit

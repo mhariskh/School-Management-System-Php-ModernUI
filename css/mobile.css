@@ -1,0 +1,43 @@
+@media only screen and (max-width: 40em) {
+	table {
+		width: 100%;
+		border-collapse: collapse;
+	}
+	/* Zebra striping */
+	tr:nth-of-type(odd) {
+		background: rgb(255, 251, 251);
+	}
+	th {
+		background: #4c57f3;
+		color: white;
+		font-weight: bold;
+	}
+	td,
+	th {
+		padding: 6px;
+		border: 1px solid #ccc;
+		text-align: left;
+	}
+
+	thead th {
+		display: none;
+	}
+
+	td,
+	th {
+		display: block;
+	}
+
+	td[data-th]:before {
+		content: attr(data-th);
+		font-weight: bold;
+	}
+	tr {
+		border-bottom: 10px solid #fff;
+	}
+
+	.spbtn {
+		display: inline-block;
+		margin: 10px;
+	}
+}
